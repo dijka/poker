@@ -3,6 +3,7 @@ package poker
 import (
 	"math/rand"
 	"time"
+	"fmt"
 )
 
 var fullDeck *Deck
@@ -26,6 +27,7 @@ func (deck *Deck) Shuffle() {
 	deck.cards = make([]Card, len(fullDeck.cards))
 	copy(deck.cards, fullDeck.cards)
 	rand.Shuffle(len(deck.cards), func(i, j int) {
+		fmt.Println("Shuffle-----%v %v", deck.cards[i], deck.cards[j])
 		deck.cards[i], deck.cards[j] = deck.cards[j], deck.cards[i]
 	})
 }
